@@ -1,0 +1,10 @@
+boolean
+byte
+char
+color
+double
+float
+int
+long
+short
+void

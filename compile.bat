@@ -1,0 +1,1 @@
+javac --release 11 -d bin -cp bin;. -Xlint src/*.java

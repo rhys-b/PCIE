@@ -1,0 +1,11 @@
+draw
+keyPressed
+keyReleased
+keyTyped
+mouseClicked
+mouseDragged
+mouseMoved
+mousePressed
+mouseReleased
+mouseWheel
+setup
