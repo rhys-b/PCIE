@@ -27,7 +27,7 @@ import javax.swing.SpinnerNumberModel;
 public class Settings {
 	public static void show() {
 		JDialog dialog = new JDialog(
-					Brocessing.getWindow(), "Options", true
+					PCIE.getWindow(), "Options", true
 		);
 		JPanel cont = new JPanel();
 		JScrollPane scroll = new JScrollPane(
@@ -223,7 +223,7 @@ public class Settings {
 		dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		dialog.setSize(500, 500);
 		dialog.setMinimumSize(new Dimension(500, 500));
-		dialog.setLocationRelativeTo(Brocessing.getWindow());
+		dialog.setLocationRelativeTo(PCIE.getWindow());
 		dialog.setLayout(new BorderLayout());
 		dialog.add(scroll);
 		dialog.add(baseplate, BorderLayout.SOUTH);
@@ -288,7 +288,7 @@ public class Settings {
 				Defaults.NUM_B = num.isSelected();
 				Defaults.ESCAPE_B = escape.isSelected();
 				
-				Brocessing.updateOptions();
+				PCIE.updateOptions();
 				dialog.dispose();
 			}
 		});

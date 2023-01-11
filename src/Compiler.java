@@ -15,16 +15,18 @@ import java.util.Scanner;
 
 public class Compiler {
 	private static Process p = null;
+	private static final String processingDirectory = Defaults.working;
 
 	public static void compile(File dir, boolean tmp) {
 		try {
 			writeStdin(dir);
 
-			p = new ProcessBuilder(Defaults.working + "/processing-java",
-				"--sketch=" + dir, "--run").start();
+			p = new ProcessBuilder(processingDirectory + "/processing-java",
+				"--sketch=" + dir,
+				"--run").start();
 
 			listen(dir, tmp);
-			Brocessing.getWindow().getTerminal().connect(p);
+			PCIE.getWindow().getTerminal().connect(p);
 		} catch (Exception e) {
 			ErrorMgr.show(e, "Error invoking the compiler.");
 		}
@@ -39,15 +41,18 @@ public class Compiler {
 				writeStdin(dir);
 
 				if (dat.embedJava()) {
-					p = new ProcessBuilder(Defaults.working + "/processing-java",
+					p = new ProcessBuilder(processingDirectory + "/processing-java",
 						"--sketch=" + dat.getSource(),
-						"--output=" + dat.getSink(), "--platform=" +
-						dat.getPlatform(), "--export").start();
+						"--output=" + dat.getSink(),
+						"--platform=" + dat.getPlatform(),
+						"--export" ).start();
 				} else {
-					p = new ProcessBuilder(Defaults.working + "/processing-java",
+					p = new ProcessBuilder(processingDirectory + "/processing-java",
 						"--sketch=" + dat.getSource(),
-						"--output=" + dat.getSink(), "--platform=" +
-						dat.getPlatform(), "--no-java", "--export").start();
+						"--output=" + dat.getSink(),
+						"--platform=" + dat.getPlatform(),
+						"--no-java",
+						"--export" ).start();
 				}
 			} catch (Exception e) {
 				ErrorMgr.show(e, "Error invoking export.");
@@ -73,7 +78,7 @@ public class Compiler {
 
 	public static void kill() {
 		if (p == null) {
-			Brocessing.getWindow().getTerminal().append("No program running.");
+			PCIE.getWindow().getTerminal().append("No program running.");
 		} else {
 			while (p != null && p.descendants().count() > 0) {
 				p.descendants().skip(p.descendants().count() - 1)
@@ -94,7 +99,7 @@ public class Compiler {
 				}
 			}
 
-			Brocessing.getWindow().getTerminal().append("Program Terminated.");
+			PCIE.getWindow().getTerminal().append("Program Terminated.");
 		}
 	}
 
@@ -126,15 +131,15 @@ public class Compiler {
 
 							ErrorParser.handle(str);
 
-							Brocessing.getWindow().getTerminal().append(str);
-							Brocessing.getWindow().getTerminal().kill();
+							PCIE.getWindow().getTerminal().append(str);
+							PCIE.getWindow().getTerminal().kill();
 						}
 					}
 				}).start();
 
 				Scanner s = new Scanner(p.getInputStream());
 				while (s.hasNextLine()) {
-					Brocessing.getWindow().getTerminal().append(s.nextLine());
+					PCIE.getWindow().getTerminal().append(s.nextLine());
 				}
 
 				removeStdin(dir);
@@ -143,7 +148,7 @@ public class Compiler {
 					dir.delete();
 				}
 
-				Brocessing.getWindow().getTerminal().disconnect();
+				PCIE.getWindow().getTerminal().disconnect();
 				p = null;
 			}
 		}).start();

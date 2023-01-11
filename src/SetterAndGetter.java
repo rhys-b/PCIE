@@ -46,7 +46,7 @@ public class SetterAndGetter {
 		docEditor.getEditor().getHighlightManager().recalculate();
 		docEditor.getEditor().getHighlightManager().repaint();
 
-		Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
+		PCIE.getWindow().getTabbedPane().setActiveSaved(false);
 
 		docEditor.recalculateLines();
 	}

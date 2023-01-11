@@ -220,7 +220,7 @@ public class TabBar extends JComponent implements MouseMotionListener,MouseListe
 
 	public void removeFile(int index) {
 		if (info.size() == 1) {
-			Brocessing.getWindow().dispose();
+			PCIE.getWindow().dispose();
 		}
 
 		closing = index;
@@ -358,7 +358,7 @@ public class TabBar extends JComponent implements MouseMotionListener,MouseListe
 				if (addActive) {
 					parent.open(null, true);
 				} else if (removeActive != -1 && closing == -1) {
-					Brocessing.getWindow().closeTab(removeActive, false);
+					PCIE.getWindow().closeTab(removeActive, false);
 				}
 			}
 

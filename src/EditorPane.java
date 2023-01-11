@@ -81,7 +81,7 @@ public class EditorPane extends JPanel implements KeyListener,
 		}
 
 		private TabbedPane getTabbedPane() {
-			return Brocessing.getWindow().getTabbedPane();
+			return PCIE.getWindow().getTabbedPane();
 		}
 	};
 
@@ -145,31 +145,31 @@ public class EditorPane extends JPanel implements KeyListener,
 	private void createPopupMenu() {
 		cut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				Brocessing.getWindow().getTabbedPane().cut();
+				PCIE.getWindow().getTabbedPane().cut();
 			}
 		});
 		
 		copy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				Brocessing.getWindow().getTabbedPane().copy();
+				PCIE.getWindow().getTabbedPane().copy();
 			}
 		});
 		
 		paste.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				Brocessing.getWindow().getTabbedPane().paste();
+				PCIE.getWindow().getTabbedPane().paste();
 			}
 		});
 		
 		undo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				Brocessing.getWindow().getTabbedPane().undo();
+				PCIE.getWindow().getTabbedPane().undo();
 			}
 		});
 		
 		redo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				Brocessing.getWindow().getTabbedPane().redo();
+				PCIE.getWindow().getTabbedPane().redo();
 			}
 		});
 		
@@ -275,7 +275,7 @@ public class EditorPane extends JPanel implements KeyListener,
 
 			return true;
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(Brocessing.getWindow(),
+			JOptionPane.showMessageDialog(PCIE.getWindow(),
 				"The selected file could not be opened.",
 				"File Error",
 				JOptionPane.ERROR_MESSAGE
@@ -301,7 +301,7 @@ public class EditorPane extends JPanel implements KeyListener,
 		if (option == 0) {
 			save();
 		} else if (option == 2) {
-			Brocessing.getWindow().dispose();
+			PCIE.getWindow().dispose();
 		}
 	}
 
@@ -684,7 +684,7 @@ public class EditorPane extends JPanel implements KeyListener,
 			}
 			
 			editMgr.crack();
-			Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
+			PCIE.getWindow().getTabbedPane().setActiveSaved(false);
 		} else if (k == KeyEvent.VK_TAB) {
 			if (!ke.isControlDown()) {
 				boolean setUnsaved = true;
@@ -812,7 +812,7 @@ public class EditorPane extends JPanel implements KeyListener,
 				}
 				
 				if (setUnsaved) {
-					Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
+					PCIE.getWindow().getTabbedPane().setActiveSaved(false);
 				}
 			}
 		} else if (k == KeyEvent.VK_BACK_SPACE) {
@@ -898,7 +898,7 @@ public class EditorPane extends JPanel implements KeyListener,
 							removeString(selection, selStart, false);
 						}
 
-						Brocessing.getWindow().getTabbedPane()
+						PCIE.getWindow().getTabbedPane()
 										.setActiveSaved(false);
 					} else {
 						tryClosingBack(doc.getText(0, caret), 0);
@@ -908,12 +908,12 @@ public class EditorPane extends JPanel implements KeyListener,
 						if (caret > 0) {
 							tryClosingBack(doc.getText(caret - 1, 1),
 											caret - 1);
-							Brocessing.getWindow().getTabbedPane()
+							PCIE.getWindow().getTabbedPane()
 										.setActiveSaved(false);
 						}
 					} else {
 						removeString(selection, selStart, false);
-						Brocessing.getWindow().getTabbedPane()
+						PCIE.getWindow().getTabbedPane()
 										.setActiveSaved(false);
 					}
 				}
@@ -990,12 +990,12 @@ public class EditorPane extends JPanel implements KeyListener,
 							removeString(doc.getText(caret,1),caret,false);
 						}
 						
-						Brocessing.getWindow().getTabbedPane()
+						PCIE.getWindow().getTabbedPane()
 										.setActiveSaved(false);
 					}
 				} else {
 					removeString(selection, selStart, false);
-					Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
+					PCIE.getWindow().getTabbedPane().setActiveSaved(false);
 				}
 
 				ke.consume();
@@ -1268,7 +1268,7 @@ public class EditorPane extends JPanel implements KeyListener,
 				bracketMatch.highlight();
 			}
 
-			Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
+			PCIE.getWindow().getTabbedPane().setActiveSaved(false);
 		}
 		
 		lastTypedChar = k;
@@ -1663,7 +1663,7 @@ public class EditorPane extends JPanel implements KeyListener,
 			text.setText(output);
 			text.setCaretPosition(startingCaret);
 
-			Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
+			PCIE.getWindow().getTabbedPane().setActiveSaved(false);
 			editMgr.replace(input, output, 0, startingCaret);
 
 			highlightMgr.recalculate();
@@ -1990,7 +1990,7 @@ public class EditorPane extends JPanel implements KeyListener,
 				
 				((DocEditor)getParent().getParent().getParent())  // Gets the DocEditor
 					.recalculateLines();
-				Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
+				PCIE.getWindow().getTabbedPane().setActiveSaved(false);
 			}
 		} catch (Exception e) {
 			ErrorMgr.show(e, "Error retrieving text pasted during center click.");

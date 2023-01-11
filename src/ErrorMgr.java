@@ -8,7 +8,7 @@ import java.awt.Font;
 import java.awt.BorderLayout;
 
 public class ErrorMgr {
-	public static void show(Exception e, String message) {
+	public static void show(Exception e, String message, boolean critical) {
 		// Create a string containing the stack trace.
 		StackTraceElement[] trace = e.getStackTrace();
 		String string = e.getMessage();
@@ -30,16 +30,24 @@ public class ErrorMgr {
 		messageLabel.setFont(messageLabel.getFont().deriveFont(Font.BOLD));
 
 		// Create the dialog.
-		JDialog dialog = new JDialog(Brocessing.getWindow(), "Fatal Error - Terminating", true);
+		JDialog dialog = new JDialog(PCIE.getWindow(), "Fatal Error - Terminating", true);
 		dialog.setLayout(new BorderLayout());
 		if (message != null) {
 			dialog.add(messageLabel, BorderLayout.NORTH);
 		}
 		dialog.add(scroller);
 		dialog.setSize(1000, 700);
-		dialog.setLocationRelativeTo(Brocessing.getWindow());
+		dialog.setLocationRelativeTo(PCIE.getWindow());
 		dialog.setVisible(true);
 
-		Brocessing.getWindow().dispose();
+		if (critical)
+		{
+			PCIE.getWindow().dispose();
+		}
+	}
+
+	public static void show(Exception e, String message)
+	{
+		show(e, message, true);
 	}
 }

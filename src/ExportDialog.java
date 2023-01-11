@@ -82,7 +82,7 @@ public class ExportDialog extends JDialog implements ActionListener {
 	}
 
 	public ExportDialog(File init) {
-		super(Brocessing.getWindow(), "Export", true);
+		super(PCIE.getWindow(), "Export", true);
 
 		source = new FileChooser("Source", init, true);
 		sink = new FileChooser("Output",
@@ -120,7 +120,7 @@ public class ExportDialog extends JDialog implements ActionListener {
 		cont.add(platform);
 
 		setSize(400, 250);
-		setLocationRelativeTo(Brocessing.getWindow());
+		setLocationRelativeTo(PCIE.getWindow());
 		setLayout(new BorderLayout());
 		add(cont);
 		add(buttonPanel, BorderLayout.SOUTH);

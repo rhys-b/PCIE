@@ -136,7 +136,7 @@ public class Defaults {
 				String[] options = {"Continue Anyway", "Quit"};
 
 				int ret = JOptionPane.showOptionDialog(
-					Brocessing.getWindow(),
+					PCIE.getWindow(),
 					"The preferences file is from a newer version than this " +
 					"program. Not all your settings may be saved if you continue.",
 					"Preferences Version",
@@ -399,7 +399,7 @@ public class Defaults {
 		String[] options = {"Recreate file with defaults", "Quit", "Use defaults this time"};
 
 		int ret = JOptionPane.showOptionDialog(
-			Brocessing.getWindow(),
+			PCIE.getWindow(),
 			"The preferences file does not contain essential data.",
 			"Preferences File Corrupted",
 			JOptionPane.DEFAULT_OPTION,

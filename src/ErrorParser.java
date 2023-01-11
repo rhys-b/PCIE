@@ -33,7 +33,7 @@ public class ErrorParser {
 		}
 
 		String title;
-		if (Brocessing.getWindow().getTabbedPane().getActiveComponent().hasFile()) {
+		if (PCIE.getWindow().getTabbedPane().getActiveComponent().hasFile()) {
 			title = filename;
 		} else {
 			try {
@@ -46,7 +46,7 @@ public class ErrorParser {
 		}
 
 		if (Defaults.FIND_ERROR && linenum != -1) {
-			TabbedPane tabs = Brocessing.getWindow().getTabbedPane();
+			TabbedPane tabs = PCIE.getWindow().getTabbedPane();
 			int index = tabs.getIndexOfTitle(title);
 
 			if (index == -1) {

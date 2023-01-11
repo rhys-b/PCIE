@@ -238,7 +238,7 @@ public class FindManager implements ComponentListener, KeyListener {
 						ErrorMgr.show(e, "Error replacing all text.");
 					}
 					
-					Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
+					PCIE.getWindow().getTabbedPane().setActiveSaved(false);
 					replaceFind.setCountString("0/0");
 				}
 			}
@@ -267,8 +267,8 @@ public class FindManager implements ComponentListener, KeyListener {
 			highlightMgr.recalculate();
 			highlightMgr.repaint(new Range(start, replaceString.length()));
 				
-			Brocessing.getWindow().getTabbedPane().setActiveSaved(false);
-			Brocessing.getWindow().getTabbedPane().getActiveComponent().recalculateLines();
+			PCIE.getWindow().getTabbedPane().setActiveSaved(false);
+			PCIE.getWindow().getTabbedPane().getActiveComponent().recalculateLines();
 		}
 		
 		replaceFind.calculate();

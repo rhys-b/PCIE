@@ -3,7 +3,7 @@
 *	Created: 2021-08-20
 *	Modified: 2021-12-30
 *
-*	The main window for the Brocessing editor.
+*	The main window for the PCIE editor.
 */
 
 import javax.imageio.ImageIO;
@@ -77,9 +77,9 @@ public class GUI extends JFrame implements WindowListener {
 		public void keyPressed(KeyEvent ke) {
 			if (ke.getKeyCode() == KeyEvent.VK_TAB && ke.isControlDown()) {
 				if (ke.isShiftDown()) {
-					Brocessing.getWindow().getTabbedPane().last();
+					PCIE.getWindow().getTabbedPane().last();
 				} else {
-					Brocessing.getWindow().getTabbedPane().next();
+					PCIE.getWindow().getTabbedPane().next();
 				}
 			}
 		}
@@ -196,7 +196,7 @@ public class GUI extends JFrame implements WindowListener {
 				JFileChooser chooser = new JFileChooser(Defaults.CURRENT_DIRECTORY);
 				chooser.setFileFilter(Defaults.FILE_FILTER);
 				chooser.setMultiSelectionEnabled(true);
-				if (chooser.showOpenDialog(Brocessing.getWindow()) ==
+				if (chooser.showOpenDialog(PCIE.getWindow()) ==
 									JFileChooser.APPROVE_OPTION) {
 					File[] files = chooser.getSelectedFiles();
 					for (int i = 0; i < files.length; i++) {
@@ -389,9 +389,9 @@ public class GUI extends JFrame implements WindowListener {
 			public void actionPerformed(ActionEvent ae) {
 				try {
 					Desktop.getDesktop().browse(
-							new URI("https://processing.org/reference"));
+							new URI("https://processing.org/reference/"));
 				} catch (Exception e) {
-					ErrorMgr.show(e, "Invalid URL.");
+					ErrorMgr.show(e, "Invalid URL.", false);
 				}
 			}
 		});
@@ -399,7 +399,7 @@ public class GUI extends JFrame implements WindowListener {
 		terminal.addKeyListener(tabSwitcher);
 		terminal.setFocusTraversalKeysEnabled(false);
 
-		setTitle("Brocessing");
+		setTitle("PCIE");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setSize(700, 500);
 		setLocationRelativeTo(null);
