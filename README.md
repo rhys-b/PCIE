@@ -21,24 +21,7 @@ automatic closing bracket insertion, and arrangable document tabs, are also pres
 
 ![Screenshot](https://github.com/rhys-b/PCIE/blob/main/screenshot2.png)
 
-### Linux
-Download both `pcie-1.0.0.jar` and `pcie` either from the `src` directory,
-or from the [Releases](https://github.com/rhys-b/Brocessing/releases) tab,
-and place them both into the top-level Processing directory. Run `pcie`
-from there or create a desktop file for convenience.
-
-### Windows
-Download `pcie-1.0.0.exe` from either the `src` directory or the
-[Releases](https://github.com/rhys-b/Brocessing/releases) tab.
-Double click to run from there, or pin to taskbar, start, or desktop.
-
-### Mac
-Download `pcie.jar` from either the `src` directory or the
-[Releases](https://github.com/rhys-b/Brocessing/releases) tab.
-On Mac, you must have a version of the Java Runtime Environment in your PATH
-environment variable. Double clicking on the .jar will run PCIE, but
-feel free to create a shortcut to it. NOTE: PCIE is untested on Mac,
-and there's a chance that it won't work.
+Download [PCIE.jar](https://github.com/rhys-b/PCIE/releases/download/v1.0.0/pcie.jar) to get started.
 
 For testing on any platform, it is worth changing this line in `Compiler.java`
 ```java
