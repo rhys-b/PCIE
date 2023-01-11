@@ -18,6 +18,9 @@ automatic closing bracket insertion, and arrangable document tabs, are also pres
 [FlatLAF](https://www.formdev.com/flatlaf/) was used for styling.
 
 ## Running
+
+![Screenshot](https://github.com/rhys-b/PCIE/blob/main/screenshot.png)
+
 ### Linux
 Download both `pcie-1.0.0.jar` and `pcie` either from the `src` directory,
 or from the [Releases](https://github.com/rhys-b/Brocessing/releases) tab,
