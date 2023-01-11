@@ -19,7 +19,7 @@ automatic closing bracket insertion, and arrangable document tabs, are also pres
 
 ## Running
 
-![Screenshot](https://github.com/rhys-b/PCIE/blob/main/screenshot.png)
+![Screenshot](https://github.com/rhys-b/PCIE/blob/main/screenshot2.png)
 
 ### Linux
 Download both `pcie-1.0.0.jar` and `pcie` either from the `src` directory,
