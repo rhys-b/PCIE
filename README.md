@@ -37,15 +37,15 @@ environment variable. Double clicking on the .jar will run PCIE, but
 feel free to create a shortcut to it. NOTE: PCIE is untested on Mac,
 and there's a chance that it won't work.
 
-For testing on any platform, it is worth changing this line:
+For testing on any platform, it is worth changing this line in `Compiler.java`
 ```java
-23 |	p = new ProcessBuilder(Defaults.working + "/processing-java",
+18 |	private static final String processingDirectory = Defaults.working;
 ```
 into
 ```java
-23 |	p = new ProcessBuilder("path/to/your/processing/directory",
+18 |	private static final String processingDirectory = "path/to/your/processing/directory/processing-4.1.1",
 ```
-Don't forget to change it back if you export to a .jar.
+Don't put an ending slash, and don't forget to change it back if you export to a .jar.
 
 ## Compiling
 From the top level directory, on Windows type `compile`, on Linux type
